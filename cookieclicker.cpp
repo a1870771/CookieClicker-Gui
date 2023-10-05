@@ -11,7 +11,7 @@ CookieClicker::CookieClicker(QWidget *parent)
 {
     ui->setupUi(this);
 
-    QPixmap bigCookie("/home/jack/Documents/QT Projects/CookieClicker/Assets/icon.png");
+    QPixmap bigCookie("/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/icon.png");
     ui->bigCookie->setPixmap(bigCookie.scaled(ui->bigCookie->width(),ui->bigCookie->height(),Qt::KeepAspectRatio));
 
     BIGCOOKIE *cookie = ui->bigCookie;
