@@ -1,5 +1,4 @@
 #include "cookieclicker.h"
-#include "bigcookie.h"
 
 #include <QApplication>
 

@@ -6,14 +6,29 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1037</width>
-    <height>612</height>
+    <width>1080</width>
+    <height>720</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
   <property name="windowTitle">
-   <string>CookieClicker</string>
+   <string>Cookie Clicker</string>
+  </property>
+  <property name="animated">
+   <bool>true</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="styleSheet">
     <string notr="true">QWidget#centralwidget {
 background: url(&quot;/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/bgBlue.jpg&quot;);
@@ -22,14 +37,16 @@ background: url(&quot;/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/
    <widget class="BIGCOOKIE" name="bigCookie">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>150</y>
+      <x>60</x>
+      <y>280</y>
       <width>256</width>
-      <height>256</height>
+      <height>251</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">BIGCOOKIE:hover{
+height: 500px;
+}</string>
     </property>
     <property name="text">
      <string/>
@@ -47,8 +64,8 @@ background: url(&quot;/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/
    <widget class="QPlainTextEdit" name="test">
     <property name="geometry">
      <rect>
-      <x>730</x>
-      <y>220</y>
+      <x>230</x>
+      <y>600</y>
       <width>104</width>
       <height>70</height>
      </rect>
@@ -61,28 +78,43 @@ background: url(&quot;/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/
    <widget class="QLabel" name="verticalDivider">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>370</x>
       <y>0</y>
-      <width>71</width>
-      <height>611</height>
+      <width>16</width>
+      <height>720</height>
      </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
     </property>
     <property name="text">
      <string/>
     </property>
+    <property name="pixmap">
+     <pixmap>Assets/panelVertical.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="cookieCount">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>100</y>
-      <width>321</width>
+      <y>160</y>
+      <width>371</width>
       <height>51</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>36</pointsize>
+      <family>Merriweather</family>
+      <pointsize>30</pointsize>
+      <bold>false</bold>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="layoutDirection">
@@ -91,17 +123,882 @@ background: url(&quot;/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/
     <property name="autoFillBackground">
      <bool>false</bool>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel#cookieCount{
+background: rgba(0,0,0,50%);
+}</string>
+    </property>
     <property name="text">
      <string>0 Cookies</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
+   <widget class="QLabel" name="verticalDivider_2">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>0</y>
+      <width>16</width>
+      <height>720</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/panelVertical.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Gradient_b">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>650</y>
+      <width>1281</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/blackGradient.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Gradient_t">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1281</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/blackGradientSmallTop.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="storeText">
+    <property name="geometry">
+     <rect>
+      <x>805</x>
+      <y>0</y>
+      <width>276</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Merriweather</family>
+      <pointsize>24</pointsize>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel#storeText{
+background:rgba(0,0,0,50%)
+}</string>
+    </property>
+    <property name="text">
+     <string>Store</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="storeItem_1">
+    <property name="geometry">
+     <rect>
+      <x>806</x>
+      <y>139</y>
+      <width>321</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/storeTile.jpg</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="storeItem_2">
+    <property name="geometry">
+     <rect>
+      <x>807</x>
+      <y>203</y>
+      <width>321</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/storeTile.jpg</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="storeItem_3">
+    <property name="geometry">
+     <rect>
+      <x>807</x>
+      <y>267</y>
+      <width>321</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/storeTile.jpg</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="storeItem_4">
+    <property name="geometry">
+     <rect>
+      <x>807</x>
+      <y>331</y>
+      <width>321</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/storeTile.jpg</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="storeItem_5">
+    <property name="geometry">
+     <rect>
+      <x>807</x>
+      <y>395</y>
+      <width>321</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/storeTile.jpg</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="storeItem_6">
+    <property name="geometry">
+     <rect>
+      <x>807</x>
+      <y>459</y>
+      <width>321</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/storeTile.jpg</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="storeItem_7">
+    <property name="geometry">
+     <rect>
+      <x>807</x>
+      <y>523</y>
+      <width>321</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/storeTile.jpg</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="storeItem_8">
+    <property name="geometry">
+     <rect>
+      <x>807</x>
+      <y>587</y>
+      <width>321</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/storeTile.jpg</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="horizDivider_2">
+    <property name="geometry">
+     <rect>
+      <x>806</x>
+      <y>40</y>
+      <width>291</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/panelHorizontal.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="horizDivider">
+    <property name="geometry">
+     <rect>
+      <x>806</x>
+      <y>126</y>
+      <width>291</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/panelHorizontal.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="icon_cursor">
+    <property name="geometry">
+     <rect>
+      <x>809</x>
+      <y>142</y>
+      <width>71</width>
+      <height>58</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/cursor.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="icon_grandma">
+    <property name="geometry">
+     <rect>
+      <x>814</x>
+      <y>206</y>
+      <width>71</width>
+      <height>58</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/grandma.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="icon_mine">
+    <property name="geometry">
+     <rect>
+      <x>814</x>
+      <y>270</y>
+      <width>71</width>
+      <height>58</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/mine.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="icon_factory">
+    <property name="geometry">
+     <rect>
+      <x>814</x>
+      <y>334</y>
+      <width>71</width>
+      <height>58</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/factory.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="icon_shipment">
+    <property name="geometry">
+     <rect>
+      <x>814</x>
+      <y>398</y>
+      <width>71</width>
+      <height>58</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/shipment.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="icon_alchemy_lab">
+    <property name="geometry">
+     <rect>
+      <x>814</x>
+      <y>462</y>
+      <width>71</width>
+      <height>58</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/alchemy_lab.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="icon_portal">
+    <property name="geometry">
+     <rect>
+      <x>814</x>
+      <y>526</y>
+      <width>71</width>
+      <height>58</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/portal.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="icon_time_machine">
+    <property name="geometry">
+     <rect>
+      <x>814</x>
+      <y>590</y>
+      <width>71</width>
+      <height>58</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/time_machine.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="store_names">
+    <property name="geometry">
+     <rect>
+      <x>880</x>
+      <y>150</y>
+      <width>351</width>
+      <height>501</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Merriweather</family>
+      <pointsize>18</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+p {
+line-height: 1.68;
+color:white;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;Cursor&lt;/p&gt;
+&lt;p&gt;Grandma&lt;/p&gt;
+&lt;p&gt;Mine&lt;/p&gt;
+&lt;p&gt;Factory&lt;/p&gt;
+&lt;p&gt;Shipment&lt;/p&gt;
+&lt;p&gt;Alchemy Lab&lt;/p&gt;
+&lt;p&gt;Portal&lt;/p&gt;
+&lt;p&gt;Time Machine&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="horizDivider_3">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>95</y>
+      <width>421</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/panelHorizontal.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="horizDivider_4">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>190</y>
+      <width>421</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/panelHorizontal.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="horizDivider_8">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>570</y>
+      <width>421</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/panelHorizontal.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="horizDivider_6">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>380</y>
+      <width>421</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/panelHorizontal.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="horizDivider_7">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>475</y>
+      <width>421</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/panelHorizontal.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="horizDivider_5">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>285</y>
+      <width>421</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/panelHorizontal.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QWidget" name="bg_grandma" native="true">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>0</y>
+      <width>411</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget#bg_grandma {
+background: url(&quot;/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/grandmaBackground.png&quot;);
+}</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="bg_mine" native="true">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>100</y>
+      <width>411</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget#bg_mine{
+background: url(&quot;/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/mineBackground.png&quot;);
+}</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="bg_factory" native="true">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>190</y>
+      <width>411</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget#bg_factory{
+background: url(&quot;/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/factoryBackground.png&quot;);
+}</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="bg_shipment" native="true">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>290</y>
+      <width>411</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget#bg_shipment{
+background: url(&quot;/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/shipmentBackground.png&quot;);
+}</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="bg_alchemy_lab" native="true">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>390</y>
+      <width>411</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget#bg_alchemy_lab{
+background: url(&quot;/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/alchemylabBackground.png&quot;);
+}</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="bg_portal" native="true">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>470</y>
+      <width>411</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget#bg_portal{
+background: url(&quot;/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/portalBackground.png&quot;);
+}</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="bg_time_machine" native="true">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>580</y>
+      <width>411</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget#bg_time_machine{
+background: url(&quot;/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/timemachineBackground.png&quot;);
+}</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="farm_name">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>110</y>
+      <width>371</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Merriweather</family>
+      <pointsize>16</pointsize>
+      <bold>false</bold>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel#farm_name{
+background: rgba(0,0,0,50%);
+}</string>
+    </property>
+    <property name="text">
+     <string>Lil Fucker's Bakery</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="shine">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>220</y>
+      <width>370</width>
+      <height>370</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/shine.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="horizDivider_9">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>70</y>
+      <width>371</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Assets/panelHorizontal.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QWidget" name="bg_panel" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>371</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget#bg_panel {
+background: url(&quot;/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/panelBG.png&quot;);
+}</string>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>371</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Merriweather</family>
+       <pointsize>12</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>&quot;Your cookies have been placed under government surveilance&quot;</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="overlay_cursor">
+    <property name="geometry">
+     <rect>
+      <x>806</x>
+      <y>140</y>
+      <width>281</width>
+      <height>65</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel#overlay_cursor:hover{
+background: rgba(255,255,255,100);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="overlay_grandma">
+    <property name="geometry">
+     <rect>
+      <x>806</x>
+      <y>205</y>
+      <width>281</width>
+      <height>65</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel#overlay_grandma:hover{
+background: rgba(255,255,255,100);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="overlay_factory">
+    <property name="geometry">
+     <rect>
+      <x>806</x>
+      <y>335</y>
+      <width>281</width>
+      <height>65</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel#overlay_factory:hover{
+background: rgba(255,255,255,100);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="overlay_mine">
+    <property name="geometry">
+     <rect>
+      <x>806</x>
+      <y>270</y>
+      <width>281</width>
+      <height>65</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel#overlay_mine:hover{
+background: rgba(255,255,255,100);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>bg_panel</zorder>
+   <zorder>shine</zorder>
+   <zorder>bg_time_machine</zorder>
+   <zorder>bg_portal</zorder>
+   <zorder>bg_shipment</zorder>
+   <zorder>bg_alchemy_lab</zorder>
+   <zorder>bg_factory</zorder>
+   <zorder>bg_mine</zorder>
+   <zorder>bg_grandma</zorder>
+   <zorder>bigCookie</zorder>
+   <zorder>test</zorder>
+   <zorder>cookieCount</zorder>
+   <zorder>verticalDivider_2</zorder>
+   <zorder>Gradient_b</zorder>
+   <zorder>Gradient_t</zorder>
+   <zorder>storeText</zorder>
+   <zorder>storeItem_1</zorder>
+   <zorder>storeItem_2</zorder>
+   <zorder>storeItem_3</zorder>
+   <zorder>storeItem_4</zorder>
+   <zorder>storeItem_5</zorder>
+   <zorder>storeItem_6</zorder>
+   <zorder>storeItem_7</zorder>
+   <zorder>storeItem_8</zorder>
+   <zorder>horizDivider_2</zorder>
+   <zorder>horizDivider</zorder>
+   <zorder>icon_mine</zorder>
+   <zorder>icon_factory</zorder>
+   <zorder>icon_shipment</zorder>
+   <zorder>icon_alchemy_lab</zorder>
+   <zorder>icon_portal</zorder>
+   <zorder>icon_time_machine</zorder>
+   <zorder>horizDivider_3</zorder>
+   <zorder>horizDivider_4</zorder>
+   <zorder>horizDivider_8</zorder>
+   <zorder>horizDivider_6</zorder>
+   <zorder>horizDivider_7</zorder>
+   <zorder>horizDivider_5</zorder>
+   <zorder>verticalDivider</zorder>
+   <zorder>farm_name</zorder>
+   <zorder>horizDivider_9</zorder>
+   <zorder>icon_cursor</zorder>
+   <zorder>icon_grandma</zorder>
+   <zorder>store_names</zorder>
+   <zorder>overlay_cursor</zorder>
+   <zorder>overlay_grandma</zorder>
+   <zorder>overlay_factory</zorder>
+   <zorder>overlay_mine</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1037</width>
+     <width>1080</width>
      <height>20</height>
     </rect>
    </property>
