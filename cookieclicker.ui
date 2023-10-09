@@ -14,11 +14,16 @@
    <string>CookieClicker</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">QWidget#centralwidget {
+background: url(&quot;/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/bgBlue.jpg&quot;);
+}</string>
+   </property>
    <widget class="BIGCOOKIE" name="bigCookie">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>140</y>
+      <x>40</x>
+      <y>150</y>
       <width>256</width>
       <height>256</height>
      </rect>
@@ -42,8 +47,8 @@
    <widget class="QPlainTextEdit" name="test">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>180</y>
+      <x>730</x>
+      <y>220</y>
       <width>104</width>
       <height>70</height>
      </rect>
@@ -51,6 +56,43 @@
     <property name="plainText">
      <string>jesus
 </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="verticalDivider">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>0</y>
+      <width>71</width>
+      <height>611</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>100</y>
+      <width>321</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>36</pointsize>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string>0 Cookies</string>
     </property>
    </widget>
   </widget>

@@ -12,7 +12,10 @@ CookieClicker::CookieClicker(QWidget *parent)
     ui->setupUi(this);
 
     QPixmap bigCookie("/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/icon.png");
+    QPixmap verticalDivider("/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/panelVertical.png");
+
     ui->bigCookie->setPixmap(bigCookie.scaled(ui->bigCookie->width(),ui->bigCookie->height(),Qt::KeepAspectRatio));
+    ui->verticalDivider->setPixmap(verticalDivider.scaled(ui->verticalDivider->width(),ui->verticalDivider->height(), Qt::KeepAspectRatio));
 
     BIGCOOKIE *cookie = ui->bigCookie;
     connect(cookie, SIGNAL(clicked()),this, SLOT(cookieClicked()));
