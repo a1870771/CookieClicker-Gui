@@ -1,0 +1,28 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>Assets/alchemy_lab.png</file>
+        <file>Assets/alchemylabBackground.png</file>
+        <file>Assets/bgBlue.jpg</file>
+        <file>Assets/blackGradient.png</file>
+        <file>Assets/blackGradientSmallTop.png</file>
+        <file>Assets/cursor.png</file>
+        <file>Assets/factory.png</file>
+        <file>Assets/factoryBackground.png</file>
+        <file>Assets/grandma.png</file>
+        <file>Assets/grandmaBackground.png</file>
+        <file>Assets/icon.png</file>
+        <file>Assets/mine.png</file>
+        <file>Assets/mineBackground.png</file>
+        <file>Assets/panelBG.png</file>
+        <file>Assets/panelHorizontal.png</file>
+        <file>Assets/panelVertical.png</file>
+        <file>Assets/portal.png</file>
+        <file>Assets/portalBackground.png</file>
+        <file>Assets/shine.png</file>
+        <file>Assets/shipment.png</file>
+        <file>Assets/shipmentBackground.png</file>
+        <file>Assets/storeTile.jpg</file>
+        <file>Assets/time_machine.png</file>
+        <file>Assets/timemachineBackground.png</file>
+    </qresource>
+</RCC>

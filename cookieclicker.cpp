@@ -2,7 +2,6 @@
 #include "ui_cookieclicker.h"
 #include "bigcookie.h"
 
-
 #include<QPixmap>
 #include<QGraphicsDropShadowEffect>
 
@@ -12,25 +11,26 @@ CookieClicker::CookieClicker(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // RESOURCE LOADING/TEXT RENDERING //
-    QPixmap bigCookie("/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/icon.png");
-    QPixmap verticalDivider("/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/panelVertical.png");
-    QPixmap horizontalDivider("/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/panelHorizontal.png");
-    QPixmap bottomGrad("/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/blackGradient.png");
-    QPixmap topGrad("/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/blackGradientSmallTop.png");
-    QPixmap storeItem("/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/storeTile.jpg");
-    QPixmap cursorIcon("/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/cursor.png");
-    QPixmap grandmaIcon("/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/grandma.png");
-    QPixmap mineIcon("/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/mine.png");
-    QPixmap factoryIcon("/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/factory.png");
-    QPixmap shipmentIcon("/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/shipment.png");
-    QPixmap alchemyLabIcon("/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/alchemy_lab.png");
-    QPixmap portalIcon("/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/portal.png");
-    QPixmap timeMachineIcon("/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/time_machine.png");
-    QPixmap shine("/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/shine.png");
+    // RESOURCE LOADING;/TEXT RENDERING //
+    QPixmap bigCookie(":/images/Assets/icon.png");
+    QPixmap verticalDivider(":/images/Assets/panelVertical.png");
+    QPixmap horizontalDivider(":/images/Assets/panelHorizontal.png");
+    QPixmap bottomGrad(":/images/Assets/blackGradient.png");
+    QPixmap topGrad(":/images/Assets/blackGradientSmallTop.png");
+    QPixmap storeItem(":/images/Assets/storeTile.jpg");
+    QPixmap cursorIcon(":/images/Assets/cursor.png");
+    QPixmap grandmaIcon(":/images/Assets/grandma.png");
+    QPixmap mineIcon(":/images/Assets/mine.png");
+    QPixmap factoryIcon(":/images/Assets/factory.png");
+    QPixmap shipmentIcon(":/images/Assets/shipment.png");
+    QPixmap alchemyLabIcon(":/images/Assets/alchemy_lab.png");
+    QPixmap portalIcon(":/images/Assets/portal.png");
+    QPixmap timeMachineIcon(":/images/Assets/time_machine.png");
+
+
 
     ui->bigCookie->setPixmap(bigCookie.scaled(ui->bigCookie->width(),ui->bigCookie->height(),Qt::KeepAspectRatio));
-    ui->shine->setPixmap(shine);
+
     ui->verticalDivider->setPixmap(verticalDivider.scaled(ui->verticalDivider->width(),ui->verticalDivider->height()));
     ui->verticalDivider_2->setPixmap(verticalDivider.scaled(ui->verticalDivider->width(),ui->verticalDivider->height()));
     ui->horizDivider->setPixmap(horizontalDivider.scaled(ui->horizDivider->width(),ui->horizDivider->height()));
@@ -73,6 +73,10 @@ CookieClicker::CookieClicker(QWidget *parent)
     BIGCOOKIE *cookie = ui->bigCookie;
     connect(cookie, SIGNAL(clicked()),this, SLOT(cookieClicked()));
 
+
+    connect(&clock, SIGNAL(timeout()), this, SLOT(update()));
+    clock.start(50);
+
 }
 
 CookieClicker::~CookieClicker()
@@ -82,5 +86,17 @@ CookieClicker::~CookieClicker()
 
 void CookieClicker::cookieClicked(){
     ui->test->setPlainText("pissssssss");
+}
+
+void CookieClicker::update(){
+    i += 2;
+    shineRotate(i);
+}
+
+void CookieClicker::shineRotate(int i){
+    QPixmap shinePixmap(":/images/Assets/shine.png");
+    QTransform rotation;
+    rotation.rotate(i);
+    ui->shine->setPixmap(shinePixmap.transformed(rotation));
 }
 
