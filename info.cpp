@@ -2,11 +2,13 @@
 
 info::info()
 {
-    incCookieCount(0);
+    setCookieCount(0);
 }
 
 void info::incCookieCount(long cc){
-    cookieCount += cc;
+    if (cookieCount >= cc * -1 || cc > 0){
+        cookieCount += cc;
+    }
 }
 
 long info::getCookieCount(){

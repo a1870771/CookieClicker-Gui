@@ -2,6 +2,7 @@
 #include "ui_cookieclicker.h"
 #include "bigcookie.h"
 #include "info.h"
+#include "grandma.h"
 
 #include<QPixmap>
 #include<QGraphicsDropShadowEffect>
@@ -79,6 +80,8 @@ CookieClicker::CookieClicker(QWidget *parent)
     connect(&clock, SIGNAL(timeout()), this, SLOT(update()));
     clock.start(50);
 
+    grandmaButton = ui->overlay_grandma;
+    connect(grandmaButton, SIGNAL(clicked()),this,SLOT(buyGrandma()));
 
 }
 
@@ -106,14 +109,25 @@ void CookieClicker::cookieMouseOff() {
 
 void CookieClicker::update(){
     shineRotate();
+    // get total cps
+    time++;
+    if (time >= 20){
+        time = 0;
+        // call a function which increments cookies by cps
+    }
     ui->cookie_count->setText(QString::number(GameInfo.getCookieCount()) + " cookies");
 }
 
 void CookieClicker::shineRotate(){
-    i += 2;
+    rotationSpeed += 2;
     QPixmap shinePixmap(":/images/Assets/shine.png");
     QTransform rotation;
-    rotation.rotate(i);
+    rotation.rotate(rotationSpeed);
     ui->shine->setPixmap(shinePixmap.transformed(rotation));
+}
+
+void CookieClicker::buyGrandma(){
+    grandmaButton->buyProducer(GameInfo.getCookieCount());
+    GameInfo.incCookieCount(-1 * grandmaButton->getProducerCost());
 }
 

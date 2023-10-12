@@ -860,7 +860,7 @@ background: rgba(255,255,255,100);
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="overlay_grandma">
+   <widget class="grandma" name="overlay_grandma">
     <property name="geometry">
      <rect>
       <x>806</x>
@@ -1017,6 +1017,19 @@ color: white;
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>610</y>
+      <width>58</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>bbg</string>
+    </property>
+   </widget>
    <zorder>bg_panel</zorder>
    <zorder>shine</zorder>
    <zorder>bg_time_machine</zorder>
@@ -1069,6 +1082,7 @@ color: white;
    <zorder>overlay_portal</zorder>
    <zorder>overlay_time_machine</zorder>
    <zorder>cookie_news</zorder>
+   <zorder>label</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -1087,6 +1101,11 @@ color: white;
    <class>BIGCOOKIE</class>
    <extends>QLabel</extends>
    <header location="global">bigcookie.h</header>
+  </customwidget>
+  <customwidget>
+   <class>grandma</class>
+   <extends>QLabel</extends>
+   <header location="global">grandma.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

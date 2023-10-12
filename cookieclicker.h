@@ -6,7 +6,10 @@
 #include <QPixmap>
 #include <QString>
 
-#include <info.h>
+#include "info.h"
+#include "grandma.h"
+#include "ui_cookieclicker.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class CookieClicker; }
@@ -15,15 +18,17 @@ QT_END_NAMESPACE
 class CookieClicker : public QMainWindow
 {
     Q_OBJECT
-    int i = 0;
+    int rotationSpeed = 0;
+    int time = 0;
     QTimer clock;
 
-    info GameInfo;
+
 
 public:
-
+    info GameInfo;
     CookieClicker(QWidget *parent = nullptr);
     ~CookieClicker();
+    grandma *grandmaButton;
 
 private:
     Ui::CookieClicker *ui;
@@ -34,5 +39,6 @@ public slots:
     void cookieMouseOff();
     void update();
     void shineRotate();
+    void buyGrandma();
 };
 #endif // COOKIECLICKER_H
