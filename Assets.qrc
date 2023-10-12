@@ -18,11 +18,12 @@
         <file>Assets/panelVertical.png</file>
         <file>Assets/portal.png</file>
         <file>Assets/portalBackground.png</file>
-        <file>Assets/shine.png</file>
         <file>Assets/shipment.png</file>
         <file>Assets/shipmentBackground.png</file>
         <file>Assets/storeTile.jpg</file>
         <file>Assets/time_machine.png</file>
         <file>Assets/timemachineBackground.png</file>
+        <file>Assets/shine.png</file>
+        <file>Assets/icon_hover.png</file>
     </qresource>
 </RCC>

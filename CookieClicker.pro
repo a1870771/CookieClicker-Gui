@@ -10,12 +10,14 @@ CONFIG += c++17
 
 SOURCES += \
     bigcookie.cpp \
+    info.cpp \
     main.cpp \
     cookieclicker.cpp
 
 HEADERS += \
     bigcookie.h \
-    cookieclicker.h
+    cookieclicker.h \
+    info.h
 
 FORMS += \
     cookieclicker.ui

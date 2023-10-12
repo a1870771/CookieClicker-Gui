@@ -15,10 +15,13 @@ public:
 
 signals:
     void clicked();
+    void mouseOver();
+    void mouseLeave();
 
 protected:
     void mousePressEvent(QMouseEvent* Event);
-
+    void enterEvent(QEnterEvent *ev);
+    void leaveEvent(QEvent *ev);
 };
 
 

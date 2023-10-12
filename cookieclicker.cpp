@@ -1,6 +1,7 @@
 #include "cookieclicker.h"
 #include "ui_cookieclicker.h"
 #include "bigcookie.h"
+#include "info.h"
 
 #include<QPixmap>
 #include<QGraphicsDropShadowEffect>
@@ -72,10 +73,12 @@ CookieClicker::CookieClicker(QWidget *parent)
 
     BIGCOOKIE *cookie = ui->bigCookie;
     connect(cookie, SIGNAL(clicked()),this, SLOT(cookieClicked()));
-
+    connect(cookie, SIGNAL(mouseOver()),this,SLOT(cookieMouseOver()));
+    connect(cookie, SIGNAL(mouseLeave()),this,SLOT(cookieMouseOff()));
 
     connect(&clock, SIGNAL(timeout()), this, SLOT(update()));
     clock.start(50);
+
 
 }
 
@@ -85,15 +88,29 @@ CookieClicker::~CookieClicker()
 }
 
 void CookieClicker::cookieClicked(){
-    ui->test->setPlainText("pissssssss");
+    GameInfo.incCookieCount(1);
+
+}
+
+void CookieClicker::cookieMouseOver(){
+    QPixmap bigCookieHover(":/images/Assets/icon_hover.png");
+    ui->bigCookie->setPixmap(bigCookieHover.scaled(ui->bigCookie->width(), ui->bigCookie->height()));
+}
+
+void CookieClicker::cookieMouseOff() {
+    QPixmap bigCookie(":/images/Assets/icon.png");
+    ui->bigCookie->setPixmap(bigCookie.scaled(ui->bigCookie->width(), ui->bigCookie->height()));
+
+
 }
 
 void CookieClicker::update(){
-    i += 2;
-    shineRotate(i);
+    shineRotate();
+    ui->cookie_count->setText(QString::number(GameInfo.getCookieCount()) + " cookies");
 }
 
-void CookieClicker::shineRotate(int i){
+void CookieClicker::shineRotate(){
+    i += 2;
     QPixmap shinePixmap(":/images/Assets/shine.png");
     QTransform rotation;
     rotation.rotate(i);

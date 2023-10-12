@@ -6,6 +6,8 @@
 #include <QPixmap>
 #include <QString>
 
+#include <info.h>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class CookieClicker; }
 QT_END_NAMESPACE
@@ -15,6 +17,8 @@ class CookieClicker : public QMainWindow
     Q_OBJECT
     int i = 0;
     QTimer clock;
+
+    info GameInfo;
 
 public:
 
@@ -26,7 +30,9 @@ private:
 
 public slots:
     void cookieClicked();
+    void cookieMouseOver();
+    void cookieMouseOff();
     void update();
-    void shineRotate(int i);
+    void shineRotate();
 };
 #endif // COOKIECLICKER_H

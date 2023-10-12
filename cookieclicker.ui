@@ -43,10 +43,17 @@ background: url(&quot;/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/
       <height>241</height>
      </rect>
     </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="styleSheet">
-     <string notr="true">BIGCOOKIE:hover{
-height: 500px;
-}</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string/>
@@ -59,20 +66,6 @@ height: 500px;
     </property>
     <property name="openExternalLinks">
      <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QPlainTextEdit" name="test">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>600</y>
-      <width>104</width>
-      <height>70</height>
-     </rect>
-    </property>
-    <property name="plainText">
-     <string>jesus
-</string>
     </property>
    </widget>
    <widget class="QLabel" name="verticalDivider">
@@ -100,7 +93,7 @@ height: 500px;
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="cookieCount">
+   <widget class="QLabel" name="cookie_count">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -124,8 +117,9 @@ height: 500px;
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel#cookieCount{
+     <string notr="true">QLabel#cookie_count{
 background: rgba(0,0,0,50%);
+color: white;
 }</string>
     </property>
     <property name="text">
@@ -218,7 +212,8 @@ background: rgba(0,0,0,50%);
     </property>
     <property name="styleSheet">
      <string notr="true">QLabel#storeText{
-background:rgba(0,0,0,50%)
+background:rgba(0,0,0,50%);
+color: white;
 }</string>
     </property>
     <property name="text">
@@ -787,6 +782,7 @@ background: url(&quot;/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/
     <property name="styleSheet">
      <string notr="true">QLabel#farm_name{
 background: rgba(0,0,0,50%);
+color: white;
 }</string>
     </property>
     <property name="text">
@@ -799,10 +795,10 @@ background: rgba(0,0,0,50%);
    <widget class="QLabel" name="shine">
     <property name="geometry">
      <rect>
-      <x>-20</x>
-      <y>200</y>
-      <width>401</width>
-      <height>401</height>
+      <x>-30</x>
+      <y>190</y>
+      <width>431</width>
+      <height>431</height>
      </rect>
     </property>
     <property name="text">
@@ -845,32 +841,6 @@ background: rgba(0,0,0,50%);
 background: url(&quot;/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/panelBG.png&quot;);
 }</string>
     </property>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>371</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Merriweather</family>
-       <pointsize>12</pointsize>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>&quot;Your cookies have been placed under government surveilance&quot;</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-     <property name="wordWrap">
-      <bool>true</bool>
-     </property>
-    </widget>
    </widget>
    <widget class="QLabel" name="overlay_cursor">
     <property name="geometry">
@@ -1016,6 +986,37 @@ background: rgba(255,255,255,100);
      <string/>
     </property>
    </widget>
+   <widget class="QLabel" name="cookie_news">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>371</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Merriweather</family>
+      <pointsize>12</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel#cookie_news{
+color: white;
+}</string>
+    </property>
+    <property name="text">
+     <string>&quot;Your cookies have been placed under government surveilance&quot;</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
    <zorder>bg_panel</zorder>
    <zorder>shine</zorder>
    <zorder>bg_time_machine</zorder>
@@ -1026,8 +1027,7 @@ background: rgba(255,255,255,100);
    <zorder>bg_mine</zorder>
    <zorder>bg_grandma</zorder>
    <zorder>bigCookie</zorder>
-   <zorder>test</zorder>
-   <zorder>cookieCount</zorder>
+   <zorder>cookie_count</zorder>
    <zorder>verticalDivider_2</zorder>
    <zorder>Gradient_b</zorder>
    <zorder>Gradient_t</zorder>
@@ -1068,6 +1068,7 @@ background: rgba(255,255,255,100);
    <zorder>overlay_alchemy_lab</zorder>
    <zorder>overlay_portal</zorder>
    <zorder>overlay_time_machine</zorder>
+   <zorder>cookie_news</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
