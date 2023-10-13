@@ -126,7 +126,7 @@ color: white;
      <string>0 Cookies</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignBottom|Qt::AlignHCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="verticalDivider_2">
@@ -521,7 +521,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>880</x>
-      <y>150</y>
+      <y>148</y>
       <width>351</width>
       <height>501</height>
      </rect>
@@ -538,7 +538,7 @@ color: white;
 &lt;head&gt;
 &lt;style&gt;
 p {
-line-height: 1.68;
+line-height: 1.74;
 color:white;
 }
 &lt;/style&gt;
@@ -842,7 +842,7 @@ background: url(&quot;/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/
 }</string>
     </property>
    </widget>
-   <widget class="QLabel" name="overlay_cursor">
+   <widget class="clicker" name="overlay_cursor">
     <property name="geometry">
      <rect>
       <x>806</x>
@@ -851,13 +851,30 @@ background: url(&quot;/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/
       <height>65</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Merriweather</family>
+      <pointsize>21</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">QLabel#overlay_cursor:hover{
 background: rgba(255,255,255,100);
+}
+
+QLabel{
+color: silver;
 }</string>
     </property>
     <property name="text">
-     <string/>
+     <string>0</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+    <property name="indent">
+     <number>10</number>
     </property>
    </widget>
    <widget class="grandma" name="overlay_grandma">
@@ -869,16 +886,34 @@ background: rgba(255,255,255,100);
       <height>65</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Merriweather</family>
+      <pointsize>21</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">QLabel#overlay_grandma:hover{
 background: rgba(255,255,255,100);
+}
+
+
+QLabel{
+color: silver;
 }</string>
     </property>
     <property name="text">
-     <string/>
+     <string>0</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+    <property name="indent">
+     <number>10</number>
     </property>
    </widget>
-   <widget class="QLabel" name="overlay_factory">
+   <widget class="factory" name="overlay_factory">
     <property name="geometry">
      <rect>
       <x>806</x>
@@ -887,16 +922,34 @@ background: rgba(255,255,255,100);
       <height>65</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Merriweather</family>
+      <pointsize>21</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">QLabel#overlay_factory:hover{
 background: rgba(255,255,255,100);
+}
+
+
+QLabel{
+color: silver;
 }</string>
     </property>
     <property name="text">
-     <string/>
+     <string>0</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+    <property name="indent">
+     <number>10</number>
     </property>
    </widget>
-   <widget class="QLabel" name="overlay_mine">
+   <widget class="mine" name="overlay_mine">
     <property name="geometry">
      <rect>
       <x>806</x>
@@ -905,16 +958,34 @@ background: rgba(255,255,255,100);
       <height>65</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Merriweather</family>
+      <pointsize>21</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">QLabel#overlay_mine:hover{
 background: rgba(255,255,255,100);
+}
+
+
+QLabel{
+color: silver;
 }</string>
     </property>
     <property name="text">
-     <string/>
+     <string>0</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+    <property name="indent">
+     <number>10</number>
     </property>
    </widget>
-   <widget class="QLabel" name="overlay_shipment">
+   <widget class="shipment" name="overlay_shipment">
     <property name="geometry">
      <rect>
       <x>806</x>
@@ -923,16 +994,34 @@ background: rgba(255,255,255,100);
       <height>65</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Merriweather</family>
+      <pointsize>21</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">QLabel#overlay_shipment:hover{
 background: rgba(255,255,255,100);
+}
+
+
+QLabel{
+color: silver;
 }</string>
     </property>
     <property name="text">
-     <string/>
+     <string>0</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+    <property name="indent">
+     <number>10</number>
     </property>
    </widget>
-   <widget class="QLabel" name="overlay_alchemy_lab">
+   <widget class="alchemyLab" name="overlay_alchemy_lab">
     <property name="geometry">
      <rect>
       <x>806</x>
@@ -941,16 +1030,34 @@ background: rgba(255,255,255,100);
       <height>65</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Merriweather</family>
+      <pointsize>21</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">QLabel#overlay_alchemy_lab:hover{
 background: rgba(255,255,255,100);
+}
+
+
+QLabel{
+color: silver;
 }</string>
     </property>
     <property name="text">
-     <string/>
+     <string>0</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+    <property name="indent">
+     <number>10</number>
     </property>
    </widget>
-   <widget class="QLabel" name="overlay_portal">
+   <widget class="portal" name="overlay_portal">
     <property name="geometry">
      <rect>
       <x>806</x>
@@ -959,16 +1066,34 @@ background: rgba(255,255,255,100);
       <height>65</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Merriweather</family>
+      <pointsize>21</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">QLabel#overlay_portal:hover{
 background: rgba(255,255,255,100);
+}
+
+
+QLabel{
+color: silver;
 }</string>
     </property>
     <property name="text">
-     <string/>
+     <string>0</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+    <property name="indent">
+     <number>10</number>
     </property>
    </widget>
-   <widget class="QLabel" name="overlay_time_machine">
+   <widget class="timeMachine" name="overlay_time_machine">
     <property name="geometry">
      <rect>
       <x>806</x>
@@ -977,13 +1102,31 @@ background: rgba(255,255,255,100);
       <height>65</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Merriweather</family>
+      <pointsize>21</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">QLabel#overlay_time_machine:hover{
 background: rgba(255,255,255,100);
+}
+
+
+QLabel{
+color: silver;
 }</string>
     </property>
     <property name="text">
-     <string/>
+     <string>0</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+    <property name="indent">
+     <number>10</number>
     </property>
    </widget>
    <widget class="QLabel" name="cookie_news">
@@ -1017,17 +1160,87 @@ color: white;
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="cps_count">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>610</y>
-      <width>58</width>
-      <height>15</height>
+      <x>0</x>
+      <y>211</y>
+      <width>371</width>
+      <height>25</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Merriweather</family>
+      <pointsize>14</pointsize>
+      <bold>false</bold>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel#cps_count{
+background: rgba(0,0,0,50%);
+color: white;
+}</string>
+    </property>
     <property name="text">
-     <string>bbg</string>
+     <string>per second: 0</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignHCenter|Qt::AlignTop</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="store_prices">
+    <property name="geometry">
+     <rect>
+      <x>880</x>
+      <y>171</y>
+      <width>351</width>
+      <height>500</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="font">
+     <font>
+      <family>Merriweather</family>
+      <pointsize>16</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+p {
+line-height:2.65;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#000000;&quot;&gt;15&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#000000;&quot;&gt;100&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#000000;&quot;&gt;500&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#000000;&quot;&gt;2000&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#000000;&quot;&gt;7000&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#000000;&quot;&gt;50,000&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#000000;&quot;&gt;1,000,000&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#000000;&quot;&gt;123,456,789&lt;/span&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
     </property>
    </widget>
    <zorder>bg_panel</zorder>
@@ -1073,16 +1286,17 @@ color: white;
    <zorder>icon_cursor</zorder>
    <zorder>icon_grandma</zorder>
    <zorder>store_names</zorder>
-   <zorder>overlay_cursor</zorder>
-   <zorder>overlay_grandma</zorder>
-   <zorder>overlay_factory</zorder>
-   <zorder>overlay_mine</zorder>
-   <zorder>overlay_shipment</zorder>
-   <zorder>overlay_alchemy_lab</zorder>
-   <zorder>overlay_portal</zorder>
-   <zorder>overlay_time_machine</zorder>
    <zorder>cookie_news</zorder>
-   <zorder>label</zorder>
+   <zorder>cps_count</zorder>
+   <zorder>store_prices</zorder>
+   <zorder>overlay_factory</zorder>
+   <zorder>overlay_cursor</zorder>
+   <zorder>overlay_shipment</zorder>
+   <zorder>overlay_portal</zorder>
+   <zorder>overlay_grandma</zorder>
+   <zorder>overlay_alchemy_lab</zorder>
+   <zorder>overlay_mine</zorder>
+   <zorder>overlay_time_machine</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -1106,6 +1320,41 @@ color: white;
    <class>grandma</class>
    <extends>QLabel</extends>
    <header location="global">grandma.h</header>
+  </customwidget>
+  <customwidget>
+   <class>mine</class>
+   <extends>QLabel</extends>
+   <header location="global">mine.h</header>
+  </customwidget>
+  <customwidget>
+   <class>factory</class>
+   <extends>QLabel</extends>
+   <header location="global">factory.h</header>
+  </customwidget>
+  <customwidget>
+   <class>shipment</class>
+   <extends>QLabel</extends>
+   <header location="global">shipment.h</header>
+  </customwidget>
+  <customwidget>
+   <class>alchemyLab</class>
+   <extends>QLabel</extends>
+   <header location="global">alchemylab.h</header>
+  </customwidget>
+  <customwidget>
+   <class>portal</class>
+   <extends>QLabel</extends>
+   <header>portal.h</header>
+  </customwidget>
+  <customwidget>
+   <class>timeMachine</class>
+   <extends>QLabel</extends>
+   <header>timemachine.h</header>
+  </customwidget>
+  <customwidget>
+   <class>clicker</class>
+   <extends>QLabel</extends>
+   <header>clicker.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

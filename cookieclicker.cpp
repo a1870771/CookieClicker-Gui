@@ -2,7 +2,6 @@
 #include "ui_cookieclicker.h"
 #include "bigcookie.h"
 #include "info.h"
-#include "grandma.h"
 
 #include<QPixmap>
 #include<QGraphicsDropShadowEffect>
@@ -80,8 +79,29 @@ CookieClicker::CookieClicker(QWidget *parent)
     connect(&clock, SIGNAL(timeout()), this, SLOT(update()));
     clock.start(50);
 
+    clickerButton = ui->overlay_cursor;
+    connect(clickerButton, SIGNAL(clicked()),this,SLOT(buyClicker()));
+
     grandmaButton = ui->overlay_grandma;
     connect(grandmaButton, SIGNAL(clicked()),this,SLOT(buyGrandma()));
+
+    mineButton = ui->overlay_mine;
+    connect(mineButton, SIGNAL(clicked()),this,SLOT(buyMine()));
+
+    factoryButton = ui->overlay_factory;
+    connect(factoryButton, SIGNAL(clicked()),this,SLOT(buyFactory()));
+
+    shipmentButton = ui->overlay_shipment;
+    connect(shipmentButton, SIGNAL(clicked()),this,SLOT(buyShipment()));
+
+    alchemyLabButton = ui->overlay_alchemy_lab;
+    connect(alchemyLabButton,SIGNAL(clicked()),this,SLOT(buyAlchemyLab()));
+
+    portalButton = ui->overlay_portal;
+    connect(portalButton,SIGNAL(clicked()),this,SLOT(buyPortal()));
+
+    timeMachineButton = ui->overlay_time_machine;
+    connect(timeMachineButton,SIGNAL(clicked()),this,SLOT(buyTimeMachine()));
 
 }
 
@@ -103,19 +123,23 @@ void CookieClicker::cookieMouseOver(){
 void CookieClicker::cookieMouseOff() {
     QPixmap bigCookie(":/images/Assets/icon.png");
     ui->bigCookie->setPixmap(bigCookie.scaled(ui->bigCookie->width(), ui->bigCookie->height()));
-
-
 }
 
 void CookieClicker::update(){
     shineRotate();
-    // get total cps
     time++;
+    GameInfo.setCPS(grandmaButton->getTotalProducerCPS()+mineButton->getTotalProducerCPS()+factoryButton->getTotalProducerCPS()+shipmentButton->getTotalProducerCPS()+alchemyLabButton->getTotalProducerCPS()+portalButton->getTotalProducerCPS()+timeMachineButton->getTotalProducerCPS());
     if (time >= 20){
         time = 0;
-        // call a function which increments cookies by cps
+        tenSecondTimer++;
+        GameInfo.incCookieCount(GameInfo.getCPS());
+    }
+    if (tenSecondTimer >= 10){
+        tenSecondTimer = 0;
+        GameInfo.incCookieCount(clickerButton->getProducerCount());
     }
     ui->cookie_count->setText(QString::number(GameInfo.getCookieCount()) + " cookies");
+    ui->cps_count->setText("per second: " + QString::number(GameInfo.getCPS())+"."+QString::number(clickerButton->getProducerCount()));
 }
 
 void CookieClicker::shineRotate(){
@@ -126,8 +150,50 @@ void CookieClicker::shineRotate(){
     ui->shine->setPixmap(shinePixmap.transformed(rotation));
 }
 
+void CookieClicker::buyClicker(){
+    clickerButton->buyProducer(GameInfo.getCookieCount());
+    GameInfo.incCookieCount(-1 * clickerButton->getProducerCost());
+    clickerButton->setText(QString::number(clickerButton->getProducerCount()));
+}
+
 void CookieClicker::buyGrandma(){
     grandmaButton->buyProducer(GameInfo.getCookieCount());
     GameInfo.incCookieCount(-1 * grandmaButton->getProducerCost());
+    grandmaButton->setText(QString::number(grandmaButton->getProducerCount()));
+}
+
+void CookieClicker::buyMine(){
+    mineButton->buyProducer(GameInfo.getCookieCount());
+    GameInfo.incCookieCount(-1 * mineButton->getProducerCost());
+    mineButton->setText(QString::number(mineButton->getProducerCount()));
+}
+
+void CookieClicker::buyFactory(){
+    factoryButton->buyProducer(GameInfo.getCookieCount());
+    GameInfo.incCookieCount(-1 * factoryButton->getProducerCost());
+    factoryButton->setText(QString::number(factoryButton->getProducerCount()));
+}
+void CookieClicker::buyShipment(){
+    shipmentButton->buyProducer(GameInfo.getCookieCount());
+    GameInfo.incCookieCount(-1 * shipmentButton->getProducerCost());
+    shipmentButton->setText(QString::number(shipmentButton->getProducerCount()));
+}
+
+void CookieClicker::buyAlchemyLab(){
+    alchemyLabButton->buyProducer(GameInfo.getCookieCount());
+    GameInfo.incCookieCount(-1 * alchemyLabButton->getProducerCost());
+    alchemyLabButton->setText(QString::number(alchemyLabButton->getProducerCount()));
+}
+
+void CookieClicker::buyPortal(){
+    portalButton->buyProducer(GameInfo.getCookieCount());
+    GameInfo.incCookieCount(-1 * portalButton->getProducerCost());
+    portalButton->setText(QString::number(portalButton->getProducerCount()));
+}
+
+void CookieClicker::buyTimeMachine(){
+    timeMachineButton->buyProducer(GameInfo.getCookieCount());
+    GameInfo.incCookieCount(-1 * timeMachineButton->getProducerCost());
+    timeMachineButton->setText(QString::number(timeMachineButton->getProducerCount()));
 }
 

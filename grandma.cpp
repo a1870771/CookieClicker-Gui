@@ -10,5 +10,5 @@ grandma::grandma(QWidget* parent) :
     producerCount = 0;
     producerCPS = 1;
     refreshTotalProducerCPS();
-    producerCost = 10;
+    producerCost = 100;
 }

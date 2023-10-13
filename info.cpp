@@ -11,6 +11,20 @@ void info::incCookieCount(long cc){
     }
 }
 
+void info::setCookieCount(long cc){
+    cookieCount = cc;
+}
+
 long info::getCookieCount(){
     return cookieCount;
 }
+
+long info::getCPS(){
+    return CPS;
+}
+
+void info::setCPS(long cps){
+    CPS = cps;
+}
+
+

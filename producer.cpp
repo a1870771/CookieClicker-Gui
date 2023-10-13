@@ -1,9 +1,4 @@
 #include "producer.h"
-#include "info.h"
-//int producerCount;
-//float producerCPS;
-//float totalProducerCPS;
-//long producerCost;
 
 int producer::getProducerCount() const{
     return producerCount;

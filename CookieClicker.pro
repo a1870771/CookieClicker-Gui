@@ -9,19 +9,33 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    alchemylab.cpp \
     bigcookie.cpp \
+    clicker.cpp \
+    factory.cpp \
     grandma.cpp \
     info.cpp \
     main.cpp \
     cookieclicker.cpp \
-    producer.cpp
+    mine.cpp \
+    portal.cpp \
+    producer.cpp \
+    shipment.cpp \
+    timemachine.cpp
 
 HEADERS += \
+    alchemylab.h \
     bigcookie.h \
+    clicker.h \
     cookieclicker.h \
+    factory.h \
     grandma.h \
     info.h \
-    producer.h
+    mine.h \
+    portal.h \
+    producer.h \
+    shipment.h \
+    timemachine.h
 
 FORMS += \
     cookieclicker.ui
