@@ -4,6 +4,10 @@
 #include "info.h"
 
 #include<QPixmap>
+#include <QFile>
+#include <QDataStream>
+#include <QFileDialog>
+#include <QMessageBox>
 #include<QGraphicsDropShadowEffect>
 
 CookieClicker::CookieClicker(QWidget *parent)
@@ -103,6 +107,15 @@ CookieClicker::CookieClicker(QWidget *parent)
     timeMachineButton = ui->overlay_time_machine;
     connect(timeMachineButton,SIGNAL(clicked()),this,SLOT(buyTimeMachine()));
 
+
+
+
+
+    saveButton = ui->save_button;
+    connect(saveButton,SIGNAL(clicked()),this,SLOT(saveToFile()));
+    loadButton = ui->load_button;
+    connect(loadButton,SIGNAL(clicked()),this,SLOT(loadFromFile()));
+
 }
 
 CookieClicker::~CookieClicker()
@@ -197,3 +210,55 @@ void CookieClicker::buyTimeMachine(){
     timeMachineButton->setText(QString::number(timeMachineButton->getProducerCount()));
 }
 
+void CookieClicker::generateGameState(){
+    gameState[0] = GameInfo.getCookieCount();
+    gameState[1] = clickerButton->getProducerCount();
+    gameState[2] = grandmaButton->getProducerCount();
+    gameState[3] = mineButton->getProducerCount();
+    gameState[4] = factoryButton->getProducerCount();
+    gameState[5] = shipmentButton->getProducerCount();
+    gameState[6] = alchemyLabButton->getProducerCount();
+    gameState[7] = portalButton->getProducerCount();
+    gameState[8] = timeMachineButton->getProducerCount();
+}
+
+void CookieClicker::saveToFile()
+{
+    generateGameState();
+    QString fileName = QFileDialog::getSaveFileName(this,tr("Save Game"), "", tr("CookieClicker (*.cc);;All Files (*)"));
+    if (fileName.isEmpty())
+        return;
+    else {
+        QFile file(fileName);
+        if (!file.open(QIODevice::WriteOnly)) {
+            QMessageBox::information(this, tr("Unable to open file"),
+                                     file.errorString());
+            return;
+        }
+        QDataStream out(&file);
+        for (int i = 0; i < 9; i++) {
+            out << &gameState[0];
+        }
+    }
+}
+
+
+void CookieClicker::loadFromFile()
+{
+    QString fileName = QFileDialog::getOpenFileName(this,tr("Open Game"), "",tr("CookieClicker (*.cc);;All Files (*)"));
+    if (fileName.isEmpty())
+        return;
+    else {
+        QFile file(fileName);
+
+        if (!file.open(QIODevice::ReadOnly)) {
+            QMessageBox::information(this, tr("Unable to open file"),
+                                     file.errorString());
+            return;
+        }
+
+        QDataStream in(&file);
+        // CLEAR EXISTING GAME
+        //in >> GAMEFILE
+    }
+}

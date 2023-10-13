@@ -45,6 +45,9 @@ public:
     alchemyLab *alchemyLabButton;
     portal *portalButton;
     timeMachine *timeMachineButton;
+    QPushButton *saveButton;
+    QPushButton *loadButton;
+    long gameState[9];
 
 private:
     Ui::CookieClicker *ui;
@@ -63,5 +66,9 @@ public slots:
     void buyAlchemyLab();
     void buyPortal();
     void buyTimeMachine();
+
+    void saveToFile();
+    void loadFromFile();
+    void generateGameState();
 };
 #endif // COOKIECLICKER_H
