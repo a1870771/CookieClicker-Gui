@@ -22,6 +22,7 @@ public:
     producer(QWidget * parent = Q_NULLPTR);
 
     int getProducerCount() const;
+    void setProducerCount(int c);
     void incProducerCount();
 
     float getTotalProducerCPS() const;

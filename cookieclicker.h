@@ -47,7 +47,10 @@ public:
     timeMachine *timeMachineButton;
     QPushButton *saveButton;
     QPushButton *loadButton;
-    long gameState[9];
+    int gameState[9];
+    QLabel *cookieNews;
+    QString newsLines[10] = {"You feel like making cookies, but nobody wants to eat your cookies.","\"We're nice grandmas\"- Grandma","Your family accepts to try some of your cookies","\"Indentured servitude\" - Grandma","News: Cookie farms suspected of employing undeclared elderly workforce.","People are starting to talk about your cookies.","Moist Cookies","Your cookies have been placed under government surveilance.","News : man robs bank, buys cookies.","News : families around the continent report agitated, transfixed grandmothers!"};
+    QLabel *producerPics[7][6];
 
 private:
     Ui::CookieClicker *ui;
@@ -70,5 +73,6 @@ public slots:
     void saveToFile();
     void loadFromFile();
     void generateGameState();
+    void setGameState();
 };
 #endif // COOKIECLICKER_H

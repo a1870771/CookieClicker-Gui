@@ -3,6 +3,9 @@
 int producer::getProducerCount() const{
     return producerCount;
 }
+void producer::setProducerCount(int c) {
+    producerCount = c;
+}
 void producer::incProducerCount(){
     producerCount++;
 }

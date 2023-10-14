@@ -9,6 +9,7 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include<QGraphicsDropShadowEffect>
+#include<QRandomGenerator>
 
 CookieClicker::CookieClicker(QWidget *parent)
     : QMainWindow(parent)
@@ -107,15 +108,49 @@ CookieClicker::CookieClicker(QWidget *parent)
     timeMachineButton = ui->overlay_time_machine;
     connect(timeMachineButton,SIGNAL(clicked()),this,SLOT(buyTimeMachine()));
 
-
-
-
+    cookieNews = ui->cookie_news;
+    cookieNews->setText(newsLines[0]);
 
     saveButton = ui->save_button;
     connect(saveButton,SIGNAL(clicked()),this,SLOT(saveToFile()));
     loadButton = ui->load_button;
     connect(loadButton,SIGNAL(clicked()),this,SLOT(loadFromFile()));
 
+
+    for (int i = 0; i < 7; i++) {
+        for (int j = 0; j < 6; j++) {
+            producerPics[i][j]=new QLabel(this);
+            if (i == 0){
+                producerPics[i][j]->setPixmap(grandmaIcon);
+                producerPics[i][j]->setGeometry(QRect(QPoint(400+65*j,0), QSize(100,100)));
+                producerPics[i][j]->hide();
+            } else if(i == 1){
+                producerPics[i][j]->setPixmap(mineIcon);
+                producerPics[i][j]->setGeometry(QRect(QPoint(400+65*j,100), QSize(100,100)));
+                producerPics[i][j]->hide();
+            } else if(i==2){
+                producerPics[i][j]->setPixmap(factoryIcon);
+                producerPics[i][j]->setGeometry(QRect(QPoint(400+65*j,200), QSize(100,100)));
+                producerPics[i][j]->hide();
+            } else if(i==3){
+                producerPics[i][j]->setPixmap(shipmentIcon);
+                producerPics[i][j]->setGeometry(QRect(QPoint(400+65*j,300), QSize(100,100)));
+                producerPics[i][j]->hide();
+            } else if(i==4){
+                producerPics[i][j]->setPixmap(alchemyLabIcon);
+                producerPics[i][j]->setGeometry(QRect(QPoint(400+65*j,400), QSize(100,90)));
+                producerPics[i][j]->hide();
+            } else if(i==5){
+                producerPics[i][j]->setPixmap(portalIcon);
+                producerPics[i][j]->setGeometry(QRect(QPoint(400+65*j,500), QSize(100,70)));
+                producerPics[i][j]->hide();
+            } else if(i==6){
+                producerPics[i][j]->setPixmap(timeMachineIcon);
+                producerPics[i][j]->setGeometry(QRect(QPoint(400+65*j,600), QSize(100,100)));
+                producerPics[i][j]->hide();
+            }
+        }
+    }
 }
 
 CookieClicker::~CookieClicker()
@@ -141,6 +176,44 @@ void CookieClicker::cookieMouseOff() {
 void CookieClicker::update(){
     shineRotate();
     time++;
+
+    for (int i=0;i<grandmaButton->getProducerCount();i++){
+        if(i < 6) {
+            producerPics[0][i]->show();
+
+        }
+    }
+    for (int i=0;i<mineButton->getProducerCount();i++){
+        if(i<6){
+        producerPics[1][i]->show();
+        }
+
+    }
+    for (int i=0;i<factoryButton->getProducerCount();i++){
+        if(i<6){
+        producerPics[2][i]->show();
+        }
+    }
+    for (int i=0;i<shipmentButton->getProducerCount();i++){
+        if(i<6){
+        producerPics[3][i]->show();
+        }
+    }
+    for (int i=0;i<alchemyLabButton->getProducerCount();i++){
+        if(i<6){
+        producerPics[4][i]->show();
+        }
+    }
+    for (int i=0;i<portalButton->getProducerCount();i++){
+        if(i<6){
+        producerPics[5][i]->show();
+        }
+    }
+    for (int i=0;i<timeMachineButton->getProducerCount();i++){
+        if(i<6){
+        producerPics[6][i]->show();
+        }
+    }
     GameInfo.setCPS(grandmaButton->getTotalProducerCPS()+mineButton->getTotalProducerCPS()+factoryButton->getTotalProducerCPS()+shipmentButton->getTotalProducerCPS()+alchemyLabButton->getTotalProducerCPS()+portalButton->getTotalProducerCPS()+timeMachineButton->getTotalProducerCPS());
     if (time >= 20){
         time = 0;
@@ -150,6 +223,10 @@ void CookieClicker::update(){
     if (tenSecondTimer >= 10){
         tenSecondTimer = 0;
         GameInfo.incCookieCount(clickerButton->getProducerCount());
+        int messageReset = QRandomGenerator::global()->bounded(3);
+        if (messageReset == 2){
+            cookieNews->setText(newsLines[QRandomGenerator::global()->bounded(9)]);
+        }
     }
     ui->cookie_count->setText(QString::number(GameInfo.getCookieCount()) + " cookies");
     ui->cps_count->setText("per second: " + QString::number(GameInfo.getCPS())+"."+QString::number(clickerButton->getProducerCount()));
@@ -222,6 +299,26 @@ void CookieClicker::generateGameState(){
     gameState[8] = timeMachineButton->getProducerCount();
 }
 
+void CookieClicker::setGameState(){
+    GameInfo.setCookieCount(gameState[0]);
+    clickerButton->setProducerCount(gameState[1]);
+    clickerButton->setText(QString::number(clickerButton->getProducerCount()));
+    grandmaButton->setProducerCount(gameState[2]);
+    grandmaButton->setText(QString::number(grandmaButton->getProducerCount()));
+    mineButton->setProducerCount(gameState[3]);
+    mineButton->setText(QString::number(mineButton->getProducerCount()));
+    factoryButton->setProducerCount(gameState[4]);
+    factoryButton->setText(QString::number(factoryButton->getProducerCount()));
+    shipmentButton->setProducerCount(gameState[5]);
+    shipmentButton->setText(QString::number(shipmentButton->getProducerCount()));
+    alchemyLabButton->setProducerCount(gameState[6]);
+    alchemyLabButton->setText(QString::number(alchemyLabButton->getProducerCount()));
+    portalButton->setProducerCount(gameState[7]);
+    portalButton->setText(QString::number(portalButton->getProducerCount()));
+    timeMachineButton->setProducerCount(gameState[8]);
+    timeMachineButton->setText(QString::number(timeMachineButton->getProducerCount()));
+}
+
 void CookieClicker::saveToFile()
 {
     generateGameState();
@@ -236,9 +333,7 @@ void CookieClicker::saveToFile()
             return;
         }
         QDataStream out(&file);
-        for (int i = 0; i < 9; i++) {
-            out << &gameState[0];
-        }
+        out << gameState[0] << gameState[1] << gameState[2] << gameState[3] << gameState[4] << gameState[5] << gameState[6] << gameState[7] << gameState[8];
     }
 }
 
@@ -258,7 +353,7 @@ void CookieClicker::loadFromFile()
         }
 
         QDataStream in(&file);
-        // CLEAR EXISTING GAME
-        //in >> GAMEFILE
+        in >> gameState[0] >> gameState[1] >> gameState[2] >> gameState[3] >> gameState[4] >> gameState[5] >> gameState[6] >> gameState[7] >> gameState[8];
     }
+    setGameState();
 }
