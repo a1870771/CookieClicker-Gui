@@ -25,5 +25,12 @@
         <file>Assets/timemachineBackground.png</file>
         <file>Assets/shine.png</file>
         <file>Assets/icon_hover.png</file>
+        <file>Assets/timemachinePic.png</file>
+        <file>Assets/portalPic.png</file>
+        <file>Assets/alchemylabPic.png</file>
+        <file>Assets/shipmentPic.png</file>
+        <file>Assets/factoryPic.png</file>
+        <file>Assets/minePic.png</file>
+        <file>Assets/grandmaPic.png</file>
     </qresource>
 </RCC>

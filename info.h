@@ -1,7 +1,7 @@
 #ifndef INFO_H
 #define INFO_H
 
-
+// info class handles all
 class info
 {
 private:

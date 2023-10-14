@@ -5,6 +5,7 @@ int producer::getProducerCount() const{
 }
 void producer::setProducerCount(int c) {
     producerCount = c;
+    refreshTotalProducerCPS();
 }
 void producer::incProducerCount(){
     producerCount++;

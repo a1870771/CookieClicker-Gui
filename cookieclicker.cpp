@@ -32,7 +32,13 @@ CookieClicker::CookieClicker(QWidget *parent)
     QPixmap alchemyLabIcon(":/images/Assets/alchemy_lab.png");
     QPixmap portalIcon(":/images/Assets/portal.png");
     QPixmap timeMachineIcon(":/images/Assets/time_machine.png");
-
+    QPixmap grandmaPic(":/images/Assets/grandmaPic.png");
+    QPixmap minePic(":/images/Assets/minePic.png");
+    QPixmap factoryPic(":/images/Assets/factoryPic.png");
+    QPixmap shipmentPic(":/images/Assets/shipmentPic.png");
+    QPixmap alchemyLabPic(":/images/Assets/alchemylabPic.png");
+    QPixmap portalPic(":/images/Assets/portalPic.png");
+    QPixmap timeMachinePic(":/images/Assets/timeMachinePic.png");
 
 
     ui->bigCookie->setPixmap(bigCookie.scaled(ui->bigCookie->width(),ui->bigCookie->height(),Qt::KeepAspectRatio));
@@ -69,13 +75,16 @@ CookieClicker::CookieClicker(QWidget *parent)
     ui->horizDivider_8->setPixmap(horizontalDivider);
     ui->horizDivider_9->setPixmap(horizontalDivider);
 
+
+
+    // GRAPHICS EFFECTS //
     auto effect = new QGraphicsDropShadowEffect();
     effect->setBlurRadius(0);
     effect->setXOffset(1);
     effect->setYOffset(1);
     ui->store_names->setGraphicsEffect(effect);
 
-
+    // INITIALISE SIGNALS AND SLOTS FOR MAIN WINDOW //
     BIGCOOKIE *cookie = ui->bigCookie;
     connect(cookie, SIGNAL(clicked()),this, SLOT(cookieClicked()));
     connect(cookie, SIGNAL(mouseOver()),this,SLOT(cookieMouseOver()));
@@ -116,36 +125,36 @@ CookieClicker::CookieClicker(QWidget *parent)
     loadButton = ui->load_button;
     connect(loadButton,SIGNAL(clicked()),this,SLOT(loadFromFile()));
 
-
+    // CREATE HIDDEN PRODUCER AVATAR ARRAY //
     for (int i = 0; i < 7; i++) {
         for (int j = 0; j < 6; j++) {
             producerPics[i][j]=new QLabel(this);
             if (i == 0){
-                producerPics[i][j]->setPixmap(grandmaIcon);
+                producerPics[i][j]->setPixmap(grandmaPic);
                 producerPics[i][j]->setGeometry(QRect(QPoint(400+65*j,0), QSize(100,100)));
                 producerPics[i][j]->hide();
             } else if(i == 1){
-                producerPics[i][j]->setPixmap(mineIcon);
+                producerPics[i][j]->setPixmap(minePic);
                 producerPics[i][j]->setGeometry(QRect(QPoint(400+65*j,100), QSize(100,100)));
                 producerPics[i][j]->hide();
             } else if(i==2){
-                producerPics[i][j]->setPixmap(factoryIcon);
+                producerPics[i][j]->setPixmap(factoryPic);
                 producerPics[i][j]->setGeometry(QRect(QPoint(400+65*j,200), QSize(100,100)));
                 producerPics[i][j]->hide();
             } else if(i==3){
-                producerPics[i][j]->setPixmap(shipmentIcon);
+                producerPics[i][j]->setPixmap(shipmentPic);
                 producerPics[i][j]->setGeometry(QRect(QPoint(400+65*j,300), QSize(100,100)));
                 producerPics[i][j]->hide();
             } else if(i==4){
-                producerPics[i][j]->setPixmap(alchemyLabIcon);
+                producerPics[i][j]->setPixmap(alchemyLabPic);
                 producerPics[i][j]->setGeometry(QRect(QPoint(400+65*j,400), QSize(100,90)));
                 producerPics[i][j]->hide();
             } else if(i==5){
-                producerPics[i][j]->setPixmap(portalIcon);
+                producerPics[i][j]->setPixmap(portalPic);
                 producerPics[i][j]->setGeometry(QRect(QPoint(400+65*j,500), QSize(100,70)));
                 producerPics[i][j]->hide();
             } else if(i==6){
-                producerPics[i][j]->setPixmap(timeMachineIcon);
+                producerPics[i][j]->setPixmap(timeMachinePic);
                 producerPics[i][j]->setGeometry(QRect(QPoint(400+65*j,600), QSize(100,100)));
                 producerPics[i][j]->hide();
             }
@@ -158,11 +167,13 @@ CookieClicker::~CookieClicker()
     delete ui;
 }
 
+// COOKIE CLICK //
 void CookieClicker::cookieClicked(){
     GameInfo.incCookieCount(1);
 
 }
 
+// HOVER TO CHANGE COOKIE APPEARANCE //
 void CookieClicker::cookieMouseOver(){
     QPixmap bigCookieHover(":/images/Assets/icon_hover.png");
     ui->bigCookie->setPixmap(bigCookieHover.scaled(ui->bigCookie->width(), ui->bigCookie->height()));
@@ -173,6 +184,7 @@ void CookieClicker::cookieMouseOff() {
     ui->bigCookie->setPixmap(bigCookie.scaled(ui->bigCookie->width(), ui->bigCookie->height()));
 }
 
+// GAME LOOP (EVERY 50MS THIS FUNCTION EXECUTES) //
 void CookieClicker::update(){
     shineRotate();
     time++;
@@ -232,6 +244,7 @@ void CookieClicker::update(){
     ui->cps_count->setText("per second: " + QString::number(GameInfo.getCPS())+"."+QString::number(clickerButton->getProducerCount()));
 }
 
+// ROTATES COOKIE UNDERLAY //
 void CookieClicker::shineRotate(){
     rotationSpeed += 2;
     QPixmap shinePixmap(":/images/Assets/shine.png");
@@ -240,6 +253,7 @@ void CookieClicker::shineRotate(){
     ui->shine->setPixmap(shinePixmap.transformed(rotation));
 }
 
+// PRODUCER PURCHASE FUNCTIONS //
 void CookieClicker::buyClicker(){
     clickerButton->buyProducer(GameInfo.getCookieCount());
     GameInfo.incCookieCount(-1 * clickerButton->getProducerCost());
@@ -287,6 +301,8 @@ void CookieClicker::buyTimeMachine(){
     timeMachineButton->setText(QString::number(timeMachineButton->getProducerCount()));
 }
 
+
+// GENERATE/IMPLEMENT NEW GAMESTATE ARRAY (FOR SAVING AND LOADING) //
 void CookieClicker::generateGameState(){
     gameState[0] = GameInfo.getCookieCount();
     gameState[1] = clickerButton->getProducerCount();
@@ -319,6 +335,7 @@ void CookieClicker::setGameState(){
     timeMachineButton->setText(QString::number(timeMachineButton->getProducerCount()));
 }
 
+// SAVE/LOAD FUNCTIONS //
 void CookieClicker::saveToFile()
 {
     generateGameState();
