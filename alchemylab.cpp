@@ -1,7 +1,6 @@
 #include "alchemylab.h"
 
-alchemyLab::alchemyLab(QWidget* parent)
-    :
+alchemyLab::alchemyLab(QWidget* parent) :
     producer(parent) {
     producerCount = 0;
     producerCPS = 500;

@@ -1,7 +1,6 @@
 #include "timemachine.h"
 
-timeMachine::timeMachine(QWidget* parent)
-    :
+timeMachine::timeMachine(QWidget* parent) :
     producer(parent) {
     producerCount = 0;
     producerCPS = 123456;

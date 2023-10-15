@@ -38,7 +38,7 @@ CookieClicker::CookieClicker(QWidget *parent)
     QPixmap shipmentPic(":/images/Assets/shipmentPic.png");
     QPixmap alchemyLabPic(":/images/Assets/alchemylabPic.png");
     QPixmap portalPic(":/images/Assets/portalPic.png");
-    QPixmap timeMachinePic(":/images/Assets/timeMachinePic.png");
+    QPixmap timeMachinePic(":/images/Assets/timemachinePic.png");
 
 
     ui->bigCookie->setPixmap(bigCookie.scaled(ui->bigCookie->width(),ui->bigCookie->height(),Qt::KeepAspectRatio));
@@ -192,7 +192,6 @@ void CookieClicker::update(){
     for (int i=0;i<grandmaButton->getProducerCount();i++){
         if(i < 6) {
             producerPics[0][i]->show();
-
         }
     }
     for (int i=0;i<mineButton->getProducerCount();i++){
@@ -226,7 +225,7 @@ void CookieClicker::update(){
         producerPics[6][i]->show();
         }
     }
-    GameInfo.setCPS(grandmaButton->getTotalProducerCPS()+mineButton->getTotalProducerCPS()+factoryButton->getTotalProducerCPS()+shipmentButton->getTotalProducerCPS()+alchemyLabButton->getTotalProducerCPS()+portalButton->getTotalProducerCPS()+timeMachineButton->getTotalProducerCPS());
+    GameInfo.setCPS(((clickerButton->getProducerCount()-(clickerButton->getProducerCount()%10))/10) + grandmaButton->getTotalProducerCPS()+mineButton->getTotalProducerCPS()+factoryButton->getTotalProducerCPS()+shipmentButton->getTotalProducerCPS()+alchemyLabButton->getTotalProducerCPS()+portalButton->getTotalProducerCPS()+timeMachineButton->getTotalProducerCPS());
     if (time >= 20){
         time = 0;
         tenSecondTimer++;
@@ -234,14 +233,14 @@ void CookieClicker::update(){
     }
     if (tenSecondTimer >= 10){
         tenSecondTimer = 0;
-        GameInfo.incCookieCount(clickerButton->getProducerCount());
+        GameInfo.incCookieCount(clickerButton->getProducerCount()%10);
         int messageReset = QRandomGenerator::global()->bounded(3);
         if (messageReset == 2){
             cookieNews->setText(newsLines[QRandomGenerator::global()->bounded(9)]);
         }
     }
     ui->cookie_count->setText(QString::number(GameInfo.getCookieCount()) + " cookies");
-    ui->cps_count->setText("per second: " + QString::number(GameInfo.getCPS())+"."+QString::number(clickerButton->getProducerCount()));
+    ui->cps_count->setText("per second: " + QString::number(GameInfo.getCPS())+"."+QString::number((clickerButton->getProducerCount()) % 10));
 }
 
 // ROTATES COOKIE UNDERLAY //
