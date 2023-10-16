@@ -8,14 +8,14 @@ private:
     long cookieCount;
     long CPS;
 public:
-    info();
+    info();     //default constructor initialises empty game
     ~info(){};
-    long getCookieCount();
-    void setCookieCount(long cc);
-    void incCookieCount(long cc);
+    long getCookieCount();  //returns total cookie count for current game
+    void setCookieCount(long cc);   //sets total cookie count for current game to cc
+    void incCookieCount(long cc);   //increments cookie count for current game by cc
 
-    long getCPS();
-    void setCPS(long cps);
+    long getCPS();          //returns cps for current game
+    void setCPS(long cps);  //sets cps for current game (used only in load() function)
 };
 
 #endif // INFO_H

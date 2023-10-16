@@ -56,24 +56,24 @@ private:
     Ui::CookieClicker *ui;
 
 public slots:
-    void cookieClicked();
-    void cookieMouseOver();
-    void cookieMouseOff();
-    void update();
-    void shineRotate();
-    void buyClicker();
-    void buyGrandma();
-    void buyMine();
-    void buyFactory();
-    void buyShipment();
-    void buyAlchemyLab();
-    void buyPortal();
-    void buyTimeMachine();
+    void cookieClicked();       //connected to bigcookie clicked() signal, increments cookie
+    void cookieMouseOver();     //connected to bigcookie mouseEnter() signal, changes pixmap
+    void cookieMouseOff();      //connected to bigcookie mouseLeave() signal, changes pixmap
+    void update();              //connected to info timer, called every 20ms to update game state
+    void shineRotate();         //called with update, rotates cookie undelay by 2 degrees every 20ms
+    void buyClicker();          //connected to relevant producers clicked signal, increments count by 1 and updates cps and cookie count accordingly
+    void buyGrandma();          //connected to relevant producers clicked signal, increments count by 1 and updates cps and cookie count accordingly
+    void buyMine();             //connected to relevant producers clicked signal, increments count by 1 and updates cps and cookie count accordingly
+    void buyFactory();          //connected to relevant producers clicked signal, increments count by 1 and updates cps and cookie count accordingly
+    void buyShipment();         //connected to relevant producers clicked signal, increments count by 1 and updates cps and cookie count accordingly
+    void buyAlchemyLab();       //connected to relevant producers clicked signal, increments count by 1 and updates cps and cookie count accordingly
+    void buyPortal();           //connected to relevant producers clicked signal, increments count by 1 and updates cps and cookie count accordingly
+    void buyTimeMachine();      //connected to relevant producers clicked signal, increments count by 1 and updates cps and cookie count accordingly
 
 
-    void saveToFile();
-    void loadFromFile();
-    void generateGameState();
-    void setGameState();
+    void saveToFile();          //generates a gameState array which holds producer counts and cookie counts, writes this to a .cc file
+    void loadFromFile();        //reads from a .cc file into gameState array and updates relevant variables accordingly
+    void generateGameState();   //called by saveToFile(), gathers up required variables and stores them in an array
+    void setGameState();        //sets each index of the gameState array to the relevant variable (i.e SetcCookieCount(gameState[0]))
 };
 #endif // COOKIECLICKER_H

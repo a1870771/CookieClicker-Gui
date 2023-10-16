@@ -6,7 +6,7 @@
 class alchemyLab : public producer
 {
 public:
-    alchemyLab(QWidget *parent = Q_NULLPTR);
+    alchemyLab(QWidget *parent = Q_NULLPTR);        // constructor calls producer constructor and sets cost, count and cps to default values
 };
 
 #endif // ALCHEMYLAB_H
