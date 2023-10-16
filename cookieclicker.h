@@ -70,6 +70,7 @@ public slots:
     void buyPortal();
     void buyTimeMachine();
 
+
     void saveToFile();
     void loadFromFile();
     void generateGameState();

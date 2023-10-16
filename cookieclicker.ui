@@ -805,6 +805,37 @@ background: url(&quot;/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/
 background: url(&quot;/home/jack/Documents/QT Projects/CookieClicker-Gui/Assets/panelBG.png&quot;);
 }</string>
     </property>
+    <widget class="QLabel" name="cookie_news">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>371</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Merriweather</family>
+       <pointsize>12</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel#cookie_news{
+color: white;
+}</string>
+     </property>
+     <property name="text">
+      <string>&quot;Your cookies have been placed under government surveilance&quot;</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
    </widget>
    <widget class="clicker" name="overlay_cursor">
     <property name="geometry">
@@ -1093,37 +1124,6 @@ color: silver;
      <number>10</number>
     </property>
    </widget>
-   <widget class="QLabel" name="cookie_news">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>371</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Merriweather</family>
-      <pointsize>12</pointsize>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QLabel#cookie_news{
-color: white;
-}</string>
-    </property>
-    <property name="text">
-     <string>&quot;Your cookies have been placed under government surveilance&quot;</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="wordWrap">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QLabel" name="cps_count">
     <property name="geometry">
      <rect>
@@ -1337,7 +1337,6 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <zorder>icon_cursor</zorder>
    <zorder>icon_grandma</zorder>
    <zorder>store_names</zorder>
-   <zorder>cookie_news</zorder>
    <zorder>cps_count</zorder>
    <zorder>store_prices</zorder>
    <zorder>overlay_factory</zorder>

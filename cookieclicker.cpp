@@ -76,7 +76,6 @@ CookieClicker::CookieClicker(QWidget *parent)
     ui->horizDivider_9->setPixmap(horizontalDivider);
 
 
-
     // GRAPHICS EFFECTS //
     auto effect = new QGraphicsDropShadowEffect();
     effect->setBlurRadius(0);
@@ -299,6 +298,7 @@ void CookieClicker::buyTimeMachine(){
     GameInfo.incCookieCount(-1 * timeMachineButton->getProducerCost());
     timeMachineButton->setText(QString::number(timeMachineButton->getProducerCount()));
 }
+
 
 
 // GENERATE/IMPLEMENT NEW GAMESTATE ARRAY (FOR SAVING AND LOADING) //
